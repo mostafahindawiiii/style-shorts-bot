@@ -1,0 +1,11 @@
+python-telegram-bot>=20.7
+aiohttp
+httpx
+pydub
+audioop-lts; python_version >= "3.13"
+moviepy==1.0.3
+imageio-ffmpeg
+numpy<2
+pillow
+arabic-reshaper
+python-bidi

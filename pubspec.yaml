@@ -1,0 +1,34 @@
+name: islamic_shorts_generator
+description: Turn Quran / Islamic audio into animated 9:16 shorts with word-synced Arabic captions.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+  http: ^1.2.2
+  path: ^1.9.0
+  path_provider: ^2.1.5
+  image: ^4.5.4
+  # Maintained fork of the (retired) ffmpeg_kit_flutter. Full-GPL build -> includes libx264.
+  ffmpeg_kit_flutter_new: ^4.3.2
+  image_picker: ^1.1.2
+  file_picker: ^8.1.6
+  record: ^5.2.0
+  video_player: ^2.9.2
+  share_plus: ^10.1.4
+  gal: ^2.3.1
+  flutter_secure_storage: ^9.2.4
+  shared_preferences: ^2.3.4
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/Amiri-Bold.ttf
+          weight: 700

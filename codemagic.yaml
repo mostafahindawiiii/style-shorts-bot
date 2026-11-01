@@ -1,0 +1,24 @@
+workflows:
+  android-apk:
+    name: Islamic Shorts APK
+    instance_type: linux_x2
+    max_build_duration: 45
+    environment:
+      flutter: stable
+      java: 17
+    scripts:
+      - name: Platform files + patches
+        script: |
+          [ -d android ] || flutter create --platforms=android --org com.islamicshorts --project-name islamic_shorts_generator .
+          rm -rf test
+          python3 tools/patch_android.py
+      - name: Arabic font
+        script: |
+          mkdir -p assets/fonts
+          [ -f assets/fonts/Amiri-Bold.ttf ] || curl -fL -o assets/fonts/Amiri-Bold.ttf https://github.com/google/fonts/raw/main/ofl/amiri/Amiri-Bold.ttf
+      - name: Dependencies
+        script: flutter pub get
+      - name: Build APKs
+        script: flutter build apk --release --split-per-abi --no-shrink
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
